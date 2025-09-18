@@ -11,6 +11,11 @@ int main(int argc, char** argv) {
         fileindex = i + 1;
       }
     }
+    if (wordindex == 0 || fileindex == 0) {
+      std::cout << "Syntax Error: ./neatcounter --word <word> --file <file>";
+      return 0;
+    }
+    
     freopen(argv[fileindex], "r", stdin);
     char now_word[100]; 
     int count = 0;
@@ -24,9 +29,6 @@ int main(int argc, char** argv) {
       count++;
     }
     std::cout << count;
-    if (wordindex == 0 || fileindex == 0) {
-      std::cout << "Syntax Error: ./neatcounter --word <word> --file <file>";
-    }
   } else {
     std::cout << argc << "Syntax Error: ./neatcounter --word <word> --file <file>";
   }
