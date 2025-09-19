@@ -4,15 +4,32 @@
 #include <fstream>
 #include <cstring>
 
+const int UPPER_AND_LOWERCASE_DIF = 'a' - 'A';
 
-bool CheckWord(char* word, char* MainWord)
+bool CompareChars(char ch1, char ch2)
 {
-  for (int i = 0; i < strlen(MainWord); i++)
+  if (ch1 == ch2)
+    return true;
+
+  // ch1 - заглавная, ch2 - строчная
+  if (ch1 >= 'A' && ch1 <= 'Z' && ch1 + UPPER_AND_LOWERCASE_DIF == ch2)
+    return true;
+  
+  // ch2 - заглавная, ch1 - строчная
+  if (ch2 >= 'A' && ch2 <= 'Z' && ch2 + UPPER_AND_LOWERCASE_DIF == ch1)
+    return true;
+    
+  return false;
+}
+
+bool CheckWord(char* word, char* main_word)
+{
+  for (int i = 0; i < strlen(main_word); i++)
   {
     bool flag = false;
     for (int j = 0; j < strlen(word); j++)
     {
-      if (word[j] == MainWord[i])
+      if (CompareChars(word[j],main_word[i]))
       {
         flag = true;
         break;
