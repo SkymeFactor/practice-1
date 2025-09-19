@@ -49,13 +49,13 @@ int main(int argc, char** argv) {
       return -1;
     }
     else if(strCmp(kWordCmd,argv[i]) && i+1>=argc){
-      cerr << "after --word should be a parameter"<<endl;
+      cerr << "after --word should be a parameter"<<endl; 
       return -1;
     }
   }
   toLower(filename);
   toLower(word);
-  if(filename==nullptr || word==nullptr){
+  if(filename[0]=='\0' || word[0]=='\0'){
     cerr << "not enough parameters"<<endl;
     return -1;
   }
@@ -74,7 +74,6 @@ int main(int argc, char** argv) {
       }
       if(areAllLettersInWord(letters_of_word,letters)){
         answer++;
-        cout << tmp<<' ';
       }
     }
   }
