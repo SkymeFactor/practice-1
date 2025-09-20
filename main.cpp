@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
   }
   toLower(filename);
   toLower(word);
-  if(filename[0]=='\0' || word[0]=='\0'){
+  if(filename[0]=='\0' || word[0]=='\0' || argc < 5){
     cerr << "not enough parameters"<<endl;
     return -1;
   }
