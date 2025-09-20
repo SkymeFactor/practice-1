@@ -1,0 +1,23 @@
+# ninja log v7
+3	792	7800754973666760	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+797	967	7800754981630412	neatcounter.exe	bb3e67c8bae2ac0e
+22	868	7800755484446539	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+869	1051	7800755492963961	neatcounter.exe	bb3e67c8bae2ac0e
+23	946	7800760704567018	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+948	1180	7800760713834925	neatcounter.exe	bb3e67c8bae2ac0e
+40	1099	7800761037214086	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+1103	1290	7800761047852046	neatcounter.exe	bb3e67c8bae2ac0e
+25	863	7800762215966830	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+865	1060	7800762224271107	neatcounter.exe	bb3e67c8bae2ac0e
+22	879	7800762548644177	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+880	1130	7800762557258484	neatcounter.exe	bb3e67c8bae2ac0e
+24	956	7800763143815097	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+957	1129	7800763153160598	neatcounter.exe	bb3e67c8bae2ac0e
+22	1012	7800764247807937	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+1013	1194	7800764257750100	neatcounter.exe	bb3e67c8bae2ac0e
+22	1026	7800765299111017	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+1027	1209	7800765309221460	neatcounter.exe	bb3e67c8bae2ac0e
+23	926	7800765684606318	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+927	1118	7800765693750129	neatcounter.exe	bb3e67c8bae2ac0e
+24	901	7800766718933715	CMakeFiles/neatcounter.dir/main.cpp.obj	7d28b0ec6e1accb
+903	1078	7800766727736833	neatcounter.exe	bb3e67c8bae2ac0e
