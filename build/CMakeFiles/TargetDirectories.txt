@@ -1,0 +1,3 @@
+D:/Uni/op/practice-1/build/CMakeFiles/neatcounter.dir
+D:/Uni/op/practice-1/build/CMakeFiles/edit_cache.dir
+D:/Uni/op/practice-1/build/CMakeFiles/rebuild_cache.dir
