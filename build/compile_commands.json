@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/admin/Documents/practice-1/build",
+  "command": "/usr/bin/g++ -g -o CMakeFiles/neatcounter.dir/neatcounter.cpp.o -c /home/admin/Documents/practice-1/neatcounter.cpp",
+  "file": "/home/admin/Documents/practice-1/neatcounter.cpp",
+  "output": "/home/admin/Documents/practice-1/build/CMakeFiles/neatcounter.dir/neatcounter.cpp.o"
+}
+]
