@@ -2,6 +2,30 @@
 #include <fstream>
 #include <cstring>
 
+// Function that counts each letter in given word and writes results to an array.
+void countLetters( int letCnt[], char *word ) {
+  for (int i = 0; i < strlen(word); i++) {
+    if (word[i] >= 'a') {
+      letCnt[word[i] - 'a']++;
+    }
+    else {
+      letCnt[word[i] - 'A']++;
+    }
+  }
+}
+
+bool isCnt1InCnt2( int letCnt1[], int letCnt2[] ) {
+  bool fitsCriteria = true;
+
+  for (int i = 0; i < 26 && fitsCriteria; i++) {
+    if (letCnt1[i] > letCnt2[i]) {
+      fitsCriteria = false;
+    }
+  }
+
+  return fitsCriteria;
+}
+
 int main(int argc, char** argv) {
   bool nextIsFileName = false;
   bool nextIsWord = false;
@@ -41,7 +65,7 @@ int main(int argc, char** argv) {
   }
 
   if (refWord == nullptr) {
-    refWord = "";
+    std::cout << "Error! No reference word inputed!" << std::endl;
   }
 
   std::fstream file(fileName);
@@ -51,51 +75,28 @@ int main(int argc, char** argv) {
   }
 
   int refLetCnt[26] = {0}; // the amount of each letter in the reference refWord
+  countLetters(refLetCnt, refWord);
 
-  for (int i = 0; i < strlen(refWord); i++) {
-    if (refWord[i] >= 'a') {
-      refLetCnt[refWord[i] - 'a']++;
-    }
-    else {
-      refLetCnt[refWord[i] - 'A']++;
-    }
-  }
-
-  int count = 0;
-  int letCnt[26]; // array storing the amount of each letter in each word in the file
+  int wordCount = 0;
 
   while (!file.eof()) {
     char word[100];
     file >> word;
-    if (strlen(word) == 0) // an empty string is not a word, so we skip it
-      continue;
     
-    for (int i = 0; i < 26; i++) {
-      letCnt[i] = 0;
+    if (strlen(word) == 0) { // an empty string is not a word, so we skip it
+      continue;
     }
+    
+    int letCnt[26] = {0};
 
-    for (int i = 0; i < strlen(word); i++) {
-      if (word[i] >= 'a') {
-        letCnt[word[i] - 'a']++;
-      }
-      else {
-        letCnt[word[i] - 'A']++;
-      }
-    }
+    countLetters(letCnt, word);
 
-    bool fitsCriteria = true;
-    for (int i = 0; i < 26 && fitsCriteria; i++) {
-      if (letCnt[i] < refLetCnt[i]) {
-        fitsCriteria = false;
-      }
-    }
-
-    if (fitsCriteria) {
-      count++;
+    if (isCnt1InCnt2(refLetCnt, letCnt)) {
+      wordCount++;
     }
   }
 
-  std::cout << count;
+  std::cout << wordCount;
 
   return 0;
 }
