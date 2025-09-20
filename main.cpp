@@ -1,42 +1,49 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <cstring>
 
 int main(int argc, char** argv) {
   bool nextIsFileName = false;
   bool nextIsWord = false;
   
-  std::string fileName = "";
-  std::string refWord = "";
+  char *fileName = nullptr;
+  char *refWord = nullptr;
 
   for (int i = 1; i < argc; i++) { 
-    std::string Arg = argv[i];
-
     if (nextIsFileName) {
-      fileName = Arg;
+      fileName = argv[i];
       nextIsFileName = false;
       continue;
     }
 
     if (nextIsWord) {
-      refWord = Arg;
+      refWord = argv[i];
       nextIsWord = false;
       continue;
     }
 
-    if (Arg == "--file") {
+    if (strcmp(argv[i], "--file") == 0) {
       nextIsWord = false;
       nextIsFileName = true;
       continue;
     }
     
-    if (Arg == "--word") {
+    if (strcmp(argv[i], "--word") == 0) {
       nextIsFileName = false;
       nextIsWord = true;
       continue;
     }   
   }
   
+  if (fileName == nullptr) {
+    std::cout << "Error! No file name inputed!" << std::endl;
+    return 1;
+  }
+
+  if (refWord == nullptr) {
+    refWord = "";
+  }
+
   std::fstream file(fileName);
   if (!file.is_open()) {
     std::cout << "Error! Couldn't open file " << fileName << std::endl;
@@ -45,7 +52,7 @@ int main(int argc, char** argv) {
 
   int refLetCnt[26] = {0}; // the amount of each letter in the reference refWord
 
-  for (int i = 0; i < refWord.size(); i++) {
+  for (int i = 0; i < strlen(refWord); i++) {
     if (refWord[i] >= 'a') {
       refLetCnt[refWord[i] - 'a']++;
     }
@@ -54,29 +61,20 @@ int main(int argc, char** argv) {
     }
   }
 
-  // Debugging
-  /*
-  for (int i = 0; i < 26; i++)
-  {
-    if (refLetCnt[i] > 0)
-      std::cout << char('A' + i) << ": " << refLetCnt[i] << std::endl;
-  }
-  */
- 
   int count = 0;
-  int letCnt[26];
+  int letCnt[26]; // array storing the amount of each letter in each word in the file
 
   while (!file.eof()) {
-    std::string word;
+    char word[100];
     file >> word;
-    if (word == "")
+    if (strlen(word) == 0) // an empty string is not a word, so we skip it
       continue;
     
     for (int i = 0; i < 26; i++) {
       letCnt[i] = 0;
     }
 
-    for (int i = 0; i < word.size(); i++) {
+    for (int i = 0; i < strlen(word); i++) {
       if (word[i] >= 'a') {
         letCnt[word[i] - 'a']++;
       }
